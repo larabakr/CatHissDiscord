@@ -40,14 +40,9 @@
                 if (message instanceof HTMLElement) {
                     const content = message.textContent;
 
-                    if (content.trim() === "." && message.dataset.catHissApplied !== 'true') {
-                        if (child.contains(message)) {
-                            processMessage(message);
-                        }
-                    } else if (content.trim().includes('(edited)') && content.split(' ')[0] && message.dataset.catHissApplied !== 'true') {
-                        if (child.contains(message)) {
-                            processMessage(message);
-                        }
+                    if ((content.trim() === "." && message.dataset.catHissApplied !== 'true') || (content.trim().includes('(edited)') && content.split(' ')[0] && message.dataset.catHissApplied !== 'true')) {
+                        processMessage(message);
+
                     }
 
                 }
@@ -66,12 +61,8 @@
                                 if (message instanceof HTMLElement) {
                                     const content = message.textContent.trim();
 
-                                    if (content === "." && message.dataset.catHissApplied !== 'true') {
+                                    if ((content === "." && message.dataset.catHissApplied !== 'true') || (content.trim().includes('(edited)') && content.split(' ')[0] && message.dataset.catHissApplied !== 'true')) {
                                         processMessage(message);
-                                    } else if (content.trim().includes('(edited)') && content.split(' ')[0] && message.dataset.catHissApplied !== 'true') {
-                                        if (node.contains(message)) {
-                                            processMessage(message);
-                                        }
                                     }
                                 }
                             }
@@ -82,9 +73,7 @@
                         if (message instanceof HTMLElement) {
                             const content = message.textContent.trim();
 
-                            if (content === "." && message.dataset.catHissApplied !== 'true') {
-                                processMessage(message);
-                            } else if (content.trim().includes('(edited)') && content.split(' ')[0] && message.dataset.catHissApplied !== 'true') {
+                            if ((content === "." && message.dataset.catHissApplied !== 'true') || (content.trim().includes('(edited)') && content.split(' ')[0] && message.dataset.catHissApplied !== 'true')) {
                                 processMessage(message);
                             }
                         }
